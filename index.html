@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en" data-bs-theme="dark" oncontextmenu="return false">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -98,6 +98,13 @@
             // Handle any errors that occur during the copy operation
             console.error("Error copying text to clipboard:", err);
           });
+      });
+
+      // disable ctrl+u & right click
+      document.addEventListener('keydown', function(event) {
+          if (event.ctrlKey && event.shiftKey && event.key === 'I' && event.key === 'u' && event.key === 'F12') {
+              event.preventDefault(); // Prevent opening DevTools
+          }
       });
     </script>
   </body>
